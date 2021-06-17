@@ -1,0 +1,27 @@
+.warriorBuilder {
+    h1 {
+        text-align: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            margin: .5rem 0;
+
+            label, input {
+                margin: 0;
+                width: 18rem;
+            }
+        }
+
+        .btn-primary {
+            margin-top: 2rem;
+        }
+    }
+}
