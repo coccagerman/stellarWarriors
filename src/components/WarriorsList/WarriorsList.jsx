@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import WarriorCard from './WarriorCard/WarriorCard'
+import Loader from '../Loader/Loader'
 
 export default function WarriorsList () {
 
@@ -25,7 +26,11 @@ export default function WarriorsList () {
 
     return (
         <section className='warriorsList'>
-            {fetchCompleted ? fetchedWarriorsList.map((warrior, i) => <WarriorCard key={warrior.name} warrior={warrior} id={i}/>) : <p>Loading...</p>}
+            {fetchCompleted ? fetchedWarriorsList.map((warrior, i) => <WarriorCard key={warrior.name} warrior={warrior} id={i < 16 ? i+1 : i+2}/>) : 
+                <div className='loader-container'>
+                    <Loader/>
+                </div>
+            }
         </section>
     )
 }

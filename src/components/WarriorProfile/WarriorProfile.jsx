@@ -1,20 +1,20 @@
-import Context from '../../Context'
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
 export default function WarriorProfile () {
 
-    const context = useContext(Context)
+    const { id } = useParams()
 
     const [fetchCompleted, setFetchCompleted] = useState(false)
     const [fetchedWarrior, setFetchedWarrior] = useState({})
 
     const fetchWarrior = async () =>{
-        let url = `https://swapi.dev/api/people/?search=${context.profileToShow}`
+        let url = `https://swapi.dev/api/people/${id}`
    
         const res = await fetch(url)
         const data = await res.json()
 
-        setFetchedWarrior(data.results[0])
+        setFetchedWarrior(data)
         setFetchCompleted(true)
     }
 
