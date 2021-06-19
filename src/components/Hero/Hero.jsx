@@ -1,16 +1,15 @@
-export default function Hero ({darkMode}) {
+export default function Hero () {
     return (
-        <div className={darkMode ? 'hero-container hero-container-dark' : 'hero-container'}>
+        <div className='hero-container'>
             <section className="hero">
                 <div className="stars">
                     <div className="small"></div>
                     <div className="medium"></div>
                     <div className="big"></div>
                 </div>
-                <div className={darkMode ? 'hero-phrase dark' : 'hero-phrase'}>
+                <div className='hero-phrase'>
                     <p className='hero-phrase1'>Get to know the warriors.</p>
-                    <p className='hero-phrase2'>Build your own.</p>
-                    <p className='hero-phrase3'>Make them fight!</p>
+                    <p className='hero-phrase2'>Make them fight!</p>
                 </div>
             </section>
         </div>

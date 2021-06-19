@@ -1,0 +1,39 @@
+.stellarFighting {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    h1 {
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    .selectors-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+
+        .formInput{
+            display: flex;
+            flex-direction: column;
+            margin: 2rem 8rem;
+
+            .img-container {
+                margin-top: 2rem;
+                height: 15rem;
+                width: 15rem;
+                overflow: hidden;
+        
+                img {
+                    width: 15rem;
+                    transition: .5s;
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+                }
+            }
+        }
+    }
+}

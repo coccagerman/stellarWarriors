@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useLocation } from 'react-router-dom'
 
 export default function WarriorProfile () {
 
     const { id } = useParams()
+    let location = useLocation();
 
     const [fetchCompleted, setFetchCompleted] = useState(false)
     const [fetchedWarrior, setFetchedWarrior] = useState({})
@@ -22,7 +23,7 @@ export default function WarriorProfile () {
 
     return (
         <section className='warriorProfile'>
-
+            
             <h1>{fetchedWarrior.name}</h1>
 
             {fetchCompleted ? <div className='profile-container'>
@@ -33,8 +34,8 @@ export default function WarriorProfile () {
                     <p><span className='data-title'>Gender:</span> {fetchedWarrior.gender}</p>
                     <p><span className='data-title'>Hair color:</span> {fetchedWarrior.hair_color}</p>
                     <p><span className='data-title'>Skin color:</span> {fetchedWarrior.skin_color}</p>
-                    <p><span className='data-title'>Height:</span> {fetchedWarrior.height}</p>
-                    <p><span className='data-title'>Mass:</span> {fetchedWarrior.mass}</p>
+                    <p><span className='data-title'>Height:</span> {fetchedWarrior.height} cm</p>
+                    <p><span className='data-title'>Mass:</span> {fetchedWarrior.mass} kg</p>
                 </div>    
             </div> :
              <p>Loading...</p>

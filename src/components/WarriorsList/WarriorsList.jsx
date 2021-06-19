@@ -1,36 +1,20 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import WarriorCard from './WarriorCard/WarriorCard'
-import Loader from '../Loader/Loader'
+import SearchBar from './SearchBar/SearchBar'
 
-export default function WarriorsList () {
+export default function WarriorsList ({fetchedWarriorsList}) {
 
-    const [fetchCompleted, setFetchCompleted] = useState(false)
-    const [fetchedWarriorsList, setFetchedWarriorsList] = useState([])
+    const [searchParams, setSearchParams] = useState('')
 
-    const fetchWarriorsList = async () => {
-        const results = []
-        let url = 'https://swapi.dev/api/people'
-   
-        do {
-          const res = await fetch(url)
-          const data = await res.json()
-          url = data.next
-          results.push(...data.results)
-        } while(url)
-   
-        setFetchedWarriorsList(results)
-        setFetchCompleted(true)
-    }
-
-    useEffect(() => fetchWarriorsList(), [])
+    const filteredWarriors = fetchedWarriorsList.filter(warrior => (warrior.name.toLowerCase().includes(searchParams)))
 
     return (
-        <section className='warriorsList'>
-            {fetchCompleted ? fetchedWarriorsList.map((warrior, i) => <WarriorCard key={warrior.name} warrior={warrior} id={i < 16 ? i+1 : i+2}/>) : 
-                <div className='loader-container'>
-                    <Loader/>
-                </div>
-            }
-        </section>
+        <> 
+            <SearchBar setSearchParams={setSearchParams} />
+            <section className='warriorsList'>
+                {searchParams ? filteredWarriors.map((warrior, i) => <WarriorCard key={warrior.name} warrior={warrior} id={i < 16 ? i+1 : i+2}/>) :
+                    fetchedWarriorsList.map((warrior, i) => <WarriorCard key={warrior.name} warrior={warrior} id={i < 16 ? i+1 : i+2}/>)}
+            </section>
+        </>
     )
 }

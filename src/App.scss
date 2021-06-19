@@ -1,11 +1,11 @@
 @import "~bootstrap/scss/bootstrap";
 @import '../src/components/generalStyles.scss';
 @import '../src/components/Navbar/navBar.scss';
-@import '../src/components/Navbar/DarkModeToggle/darkModeToggle.scss';
 @import '../src/components/Hero/hero.scss';
 @import '../src/components/WarriorsList/warriorsList.scss';
+@import '../src/components/WarriorsList/SearchBar/searchBar.scss';
 @import '../src/components/WarriorsList/WarriorCard/warriorCard.scss';
 @import '../src/components/WarriorProfile/WarriorProfile.scss';
-@import '../src/components/WarriorBuilder/warriorBuilder.scss';
-@import '../src/components/Loader/Loader.scss';
+@import '../src/components/StellarFighting/stellarFighting.scss';
+@import '../src/components/StellarFighting/Loader/loader.scss';
 @import '../src/components/mediaQueries.scss';

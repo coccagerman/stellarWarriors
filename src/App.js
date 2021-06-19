@@ -1,46 +1,55 @@
 import './App.scss'
-import Context from './Context';
+import Context from './Context'
 import Navbar from './components/NavBar/Navbar'
 import Hero from './components/Hero/Hero'
 import WarriorsList from './components/WarriorsList/WarriorsList'
-import WarriorBuilder from './components/WarriorBuilder/WarriorBuilder'
 import StellarFighting from './components/StellarFighting/StellarFighting'
 import WarriorProfile from './components/WarriorProfile/WarriorProfile'
-import { useState } from 'react'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { useState, useEffect } from 'react'
 
 export default function App() {
 
-  const [darkMode, setDarkMode] = useState(false)
+  const [fetchedWarriorsList, setFetchedWarriorsList] = useState([])
+  
+  const fetchWarriorsList = async () => {
+      const results = []
+      let url = 'https://swapi.dev/api/people'
+ 
+      do {
+        const res = await fetch(url)
+        const data = await res.json()
+        url = data.next
+        results.push(...data.results)
+      } while(url)
+ 
+      setFetchedWarriorsList(results)
+  }
 
-  const [profileToShow, setProfileToShow] = useState('')
+  useEffect(() => fetchWarriorsList(), [])
 
   return (
     <Router>
 
-      <Context.Provider value={{ profileToShow: profileToShow, setProfileToShow: setProfileToShow }}>
+      <Context.Provider >
 
-        <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+        <Navbar />
         <Switch>
 
           <Route path="/" exact>
-            <Hero darkMode={darkMode} />
+            <Hero />
           </Route>
 
           <Route path="/warriors">
-            <WarriorsList />
+            <WarriorsList fetchedWarriorsList={fetchedWarriorsList} />
           </Route>
 
           <Route path="/warrior/:id">
             <WarriorProfile />
           </Route>
 
-          <Route path="/warriorBuilder">
-            <WarriorBuilder />
-          </Route>
-
           <Route path="/stellarFighting">
-            <StellarFighting />
+            <StellarFighting fetchedWarriorsList={fetchedWarriorsList} />
           </Route>
           
         </Switch>
