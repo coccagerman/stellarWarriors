@@ -1,0 +1,30 @@
+.warriorProfile h1 {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.warriorProfile .profile-container {
+  margin-top: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.warriorProfile .profile-container > * {
+  margin: 3rem;
+}
+
+.warriorProfile .profile-container img {
+  max-height: 25rem;
+}
+
+.warriorProfile .profile-container .data-container .data-title {
+  font-weight: bold;
+}
+/*# sourceMappingURL=WarriorProfile.css.map */

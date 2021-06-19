@@ -1,0 +1,26 @@
+.warriorCard {
+  margin: .5rem;
+  cursor: pointer;
+}
+
+.warriorCard .img-container {
+  height: 10rem;
+  width: 17.9rem;
+  overflow: hidden;
+}
+
+.warriorCard .img-container .card-img {
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.warriorCard .img-container .card-img:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.warriorCard .btn-primary {
+  text-align: center !important;
+  margin: auto !important;
+}
+/*# sourceMappingURL=warriorCard.css.map */
