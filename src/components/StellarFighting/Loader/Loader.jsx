@@ -5,7 +5,7 @@ export default function Loader () {
 
     const history = useHistory()
 
-    useEffect(()=> setTimeout(history.push('/stellarFighting/winner', 5000)), [])
+    useEffect(()=> setTimeout(()=> history.push('/stellarFighting/winner'), 6000), [])
 
     return (
         <div id="loader">

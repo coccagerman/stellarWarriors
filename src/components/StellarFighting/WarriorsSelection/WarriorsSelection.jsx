@@ -1,5 +1,4 @@
 import { useHistory } from 'react-router-dom'
-import { Redirect } from 'react-router-dom'
 
 export default function WarriorsSelection ({fetchedWarriorsList, setWarrior1, setWarrior2, warrior1, warrior2}) {
 
@@ -31,7 +30,7 @@ export default function WarriorsSelection ({fetchedWarriorsList, setWarrior1, se
                 </article>
             </div>
 
-            {warrior1 && warrior2 ? <button className='btn-primary' onClick={() => history.push('/stellarFighting/winner')}>Fight!</button> : null}
+            {warrior1 && warrior2 ? <button className='btn-primary' onClick={() => history.push('/stellarFighting/fighting')}>Fight!</button> : null}
         </>
     )
 }
