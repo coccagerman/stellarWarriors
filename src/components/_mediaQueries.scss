@@ -1,38 +1,103 @@
 @media screen and (max-width: 767px) {
 
-    .navbar{
-        .mr-auto{
-            position: relative;
-            right: auto;
-        }
+  .navbar{
+      .mr-auto{
+          position: relative;
+          right: auto;
+      }
 
-        .logo{
-            width: 15rem;
+      .logo{
+          width: 15rem;
+      }
+  }
+
+  .hero {
+
+      .hero-phrase {
+        margin-top: 6rem !important;
+        font-size: 3rem !important;
+        text-align: center !important;
+        padding: 0 1.5rem;
+        color: white;
+        z-index: 1;
+        overflow-y: hidden;
+    
+        p {
+          z-index: 1;
         }
+    
+        .hero-phrase1 {
+          margin-left: 0 !important;
+        }
+    
+        .hero-phrase2 {
+          margin-left: 0 !important;
+        }
+      }
+      
+  }
+
+  .searchBar{
+    text-align: center;
+    margin: .5rem 0;
+
+    input {
+        width: 17rem; 
+        padding-left: 0;
+    }
+  }
+
+  .warriorProfile {
+    h1 {
+        text-align: center;
+        margin-top: 1rem;
     }
 
-    .hero {
+    .profile-container {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
-        .hero-phrase {
-          margin-top: 6rem;
-          font-size: 3rem !important;
-          text-align: center !important;
-          color: white;
-          z-index: 1;
-          overflow-y: hidden;
-      
-          p {
-            z-index: 1;
-          }
-      
-          .hero-phrase1 {
-            margin-left: 0 !important;
-          }
-      
-          .hero-phrase3 {
-            margin-left: 0 !important;
-          }
+        & > * {
+            margin: .5rem;
         }
         
-      }
+        img {
+            max-width: 20rem;
+        }
+
+        .data-container {
+            .data-title {
+                font-weight: bold;
+                margin: .25rem;
+                padding: 0;
+            }
+        }
+    }
+  }
+
+  .stellarFighting {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    h1 {
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    .selectors-container {
+        flex-direction: column;
+    }
+  }
+
+  .winner {
+    img {
+      max-width: 20rem;
+    }
+  }
 }
